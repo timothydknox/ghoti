@@ -5,6 +5,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <utility>
+
+#include "ghoti.hpp"
+#include "environment.hpp"
 
 extern char **environ;
 
@@ -16,12 +20,15 @@ int main(int argc, const char* argv[]) {
     args.push_back(argv[i]);
   }
 
-  std::cout << "environ[]" << std::endl;
+  std::vector<std::string> envp;
 
   for (int i = 0; environ[i] != nullptr; ++i) {
     std::cout << environ[i] << std::endl;
+    envp.push_back(environ[i]);
   }
 
-  return 0;
+  Ghoti::Ghoti ghoti(args, Ghoti::Environment(std::move(envp)));
+
+  return ghoti.run();
 }
 
