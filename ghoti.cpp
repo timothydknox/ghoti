@@ -4,8 +4,13 @@
 
 namespace Ghoti {
 
-int Ghoti::run() {
+int Ghoti::run() noexcept {
+  reset();
   return 0;
+}
+
+void Ghoti::reset() noexcept {
+  // Do nothing, for now
 }
 
 }  // namespace Ghoti

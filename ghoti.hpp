@@ -10,16 +10,20 @@
 
 namespace Ghoti {
 
+using Args = std::vector<std::string>;
+
 class Ghoti {
   public:
-    explicit Ghoti(std::vector<std::string> _args, Environment _env)
+    explicit Ghoti(Args _args, Environment _env)
       : args(std::move(_args)), env(std::move(_env))
     {}
 
-    int run();
+    int run() noexcept;
 
   private:
-    std::vector<std::string> args;
+    void reset() noexcept;
+
+    Args args;
     Environment env;
 };
 

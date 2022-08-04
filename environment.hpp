@@ -18,9 +18,12 @@ class Environment {
         auto v = e.substr(pos + 1);
 
         env.insert(std::make_pair<std::string, std::string>(std::move(k), std::move(v)));
-      };
+      }
+    }
 
-    };
+    std::string getValue(const std::string& key) const& noexcept {
+      return env.contains(key) ? env.at(key) : "";
+    }
 
   private:
     std::unordered_map<std::string, std::string> env;
