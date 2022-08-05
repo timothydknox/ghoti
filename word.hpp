@@ -15,8 +15,8 @@ class Word {
     using WordFunc = std::function<void(Ghoti&)>;
     using Words = std::vector<Word>;
 
-    Word(std::string _name, WordFunc _run)
-      : name(std::move(_name)), run(_run)
+    Word(std::string _name, WordFunc _run, WordFunc _compile)
+      : name(std::move(_name)), run(_run), compile(_compile)
     {}
 
     static void addToStartup(Word&& word) {
@@ -30,7 +30,8 @@ class Word {
 
   private:
     std::string name;
-    WordFunc run = nullptr;
+    WordFunc run;
+    WordFunc compile;
 
     static Words startupWords;
 };

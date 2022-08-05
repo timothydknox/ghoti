@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include <memory>
 #include <vector>
 
 #include "ghoti.hpp"
@@ -10,14 +9,12 @@
 
 namespace Ghoti {
 
-class IStack {
+class Stack {
   public:
-    IStack() {}
-
-    void run(Ghoti& ghoti) const;
+    Stack();
 
   private:
-    std::vector<std::shared_ptr<Cell>> iStack;
+    std::vector<Cell> aStack;
 };
 
 }  // namespace Ghoti
