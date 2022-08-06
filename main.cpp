@@ -16,14 +16,12 @@ int main(int argc, const char* argv[]) {
   Ghoti::Args args;
 
   for (int i = 0; i < argc; ++i) {
-    // std::cout << argv[i] << std::endl;
     args.push_back(argv[i]);
   }
 
   std::vector<std::string> envp;
 
   for (int i = 0; environ[i] != nullptr; ++i) {
-    // std::cout << environ[i] << std::endl;
     envp.push_back(environ[i]);
   }
 

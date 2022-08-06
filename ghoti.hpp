@@ -7,6 +7,7 @@
 #include <utility>
 
 #include "environment.hpp"
+#include "stack.hpp"
 
 namespace Ghoti {
 
@@ -15,16 +16,26 @@ using Args = std::vector<std::string>;
 class Ghoti {
   public:
     explicit Ghoti(Args _args, Environment _env)
-      : args(std::move(_args)), env(std::move(_env))
+      : args(std::move(_args)), env(std::move(_env)), dataStack(), returnStack()
     {}
 
     int run() noexcept;
+
+    Stack& getData() {
+      return dataStack;
+    }
+
+    Stack& getReturn() {
+      return returnStack;
+    }
 
   private:
     void reset() noexcept;
 
     Args args;
     Environment env;
+    Stack dataStack;
+    Stack returnStack;
 };
 
 }  // namespace Ghoti

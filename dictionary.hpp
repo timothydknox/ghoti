@@ -10,8 +10,6 @@ class Dictionary {
   public:
     Dictionary() {}
 
-    void run(Ghoti& ghoti) const;
-
   private:
 };
 

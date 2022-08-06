@@ -3,12 +3,13 @@
 #pragma once
 
 #include <functional>
+#include <string>
 #include <vector>
 #include <utility>
 
-#include "ghoti.hpp"
-
 namespace Ghoti {
+
+class Ghoti;
 
 class Word {
   public:
@@ -19,9 +20,9 @@ class Word {
       : name(std::move(_name)), run(_run), compile(_compile)
     {}
 
-    static void addToStartup(Word&& word) {
-      startupWords.emplace_back(word);
-    }
+    static void initStartupWords();
+
+    static void addToStartup(Word&& word);
 
     static const Words& getWords() {
       return startupWords;
