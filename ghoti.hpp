@@ -30,6 +30,10 @@ class Ghoti {
       return returnStack;
     }
 
+    Dictionary& getDictionary() {
+      return words;
+    }
+
   private:
     void reset() noexcept;
 

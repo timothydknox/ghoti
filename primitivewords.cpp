@@ -9,14 +9,13 @@ namespace Ghoti {
 Word::Words Word::startupWords = {};
 
 void Word::addToStartup(Word&& word) {
-  Word::startupWords.emplace_back(word);
+  Word::startupWords.emplace_back(std::move(word));
 }
 
 void Dup(Ghoti& ghoti) {
   auto ds = ghoti.getData();
-  auto lhs = ds.pop();
+  auto lhs = ds.top();
 
-  ds.push(lhs);
   ds.push(lhs);
 }
 

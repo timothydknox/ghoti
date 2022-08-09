@@ -26,6 +26,14 @@ class Stack {
       return cell;
     }
 
+    Cell top() {
+      if (aStack.empty()) {
+        throw std::underflow_error("Stack is empty.");
+      }
+
+      return aStack.back();
+    }
+
   private:
     std::vector<Cell> aStack;
 };
