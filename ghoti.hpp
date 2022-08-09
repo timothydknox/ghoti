@@ -8,6 +8,7 @@
 
 #include "environment.hpp"
 #include "stack.hpp"
+#include "dictionary.hpp"
 
 namespace Ghoti {
 
@@ -36,6 +37,7 @@ class Ghoti {
     Environment env;
     Stack dataStack;
     Stack returnStack;
+    Dictionary words;
 };
 
 }  // namespace Ghoti

@@ -2,15 +2,17 @@
 
 #pragma once
 
-#include "ghoti.hpp"
+#include "word.hpp"
 
 namespace Ghoti {
 
 class Dictionary {
   public:
     Dictionary() {}
+    void reset();
 
   private:
+    Word::Words words;
 };
 
 }  // namespace Ghoti

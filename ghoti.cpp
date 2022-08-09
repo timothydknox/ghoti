@@ -27,6 +27,7 @@ int Ghoti::run() noexcept {
 
 void Ghoti::reset() noexcept {
   Word::initStartupWords();
+  Ghoti::words.reset();
 }
 
 }  // namespace Ghoti
